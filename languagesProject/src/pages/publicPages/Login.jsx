@@ -30,15 +30,21 @@ export const Login = () => {
   return (
     <>
       <div>
-      <Navbar/>
-        <div className="loginWindow">
-          <h2>LOGIN</h2>
-
-          <form>
-            <div>
-              <div>
+        <Navbar />
+        <div className="flex justify-center items-center h-screen">
+          <div className="w-full max-w-md">
+            <h2 className="text-center text-3xl font-bold mb-4">LOGIN</h2>
+  
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
                 <input
-                  className="input input-bordered input-primary w-full max-w-xs"
+                  className="input input-bordered input-primary w-full max-w-xs py-2 px-3 rounded"
                   type="email"
                   placeholder="Introduce tu email"
                   autoComplete="on"
@@ -46,9 +52,15 @@ export const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div>
+              <div className="mb-6">
+                <label
+                  className="block text-gray-700 font-bold mb-2"
+                  htmlFor="password"
+                >
+                  Contraseña
+                </label>
                 <input
-                  className="input input-bordered input-primary w-full max-w-xs"
+                  className="input input-bordered input-primary w-full max-w-xs py-2 px-3 rounded"
                   type="password"
                   placeholder="Contraseña"
                   minLength="6"
@@ -57,30 +69,38 @@ export const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div>
-                <Link className="forgotPass" type="link" to="/ForgotPassword">
-                  {" "}
-                  ¿Has olvidado tu contraseña?{" "}
+              <div className="mb-4 text-right">
+                <Link
+                  className="text-sm text-primary-500 hover:text-primary-700"
+                  type="link"
+                  to="/ForgotPassword"
+                >
+                  ¿Has olvidado tu contraseña?
                 </Link>
               </div>
-            </div>
-            <br />
-            <button className="login" type="submit" onClick={handleLogin}>
-              Access
-            </button>
-            <div>
-              <Link className="subtextLogin" type="link" to="/register/">
-                {" "}
-                Create Account{" "}
-              </Link>
-            </div>
-            <br /><br />
-            <div>
+              <div className="flex items-center justify-between">
+                <button
+                  className="bg-primary hover:bg-primary-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  onClick={handleLogin}
+                >
+                  Acceder
+                </button>
+                <Link
+                  className="inline-block align-baseline font-bold text-sm text-primary-500 hover:text-primary-700"
+                  type="link"
+                  to="/register/"
+                >
+                  Crear cuenta
+                </Link>
+              </div>
+            </form>
+            <div className="text-center">
               <LogOut />
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
   );
-};
+}
